@@ -199,8 +199,45 @@ The script imports the `random` library:
 
 ```python
 import random
-number = random.randint(1, 9999)
-print(f"the moon is now {number} from, heare")
+
+def calculate_orbital_vectors():
+    print('[*] Initializing telemetry subsystem...')
+    print('[*] Fetching current coordinates from Mars Reconnaissance Orbiter...')
+    
+    # Generando números aleatorios para simular coordenadas
+    lat = random.uniform(-90.0, 90.0)
+    lon = random.uniform(-180.0, 180.0)
+    alt = random.uniform(150.0, 400.0) # Km
+    
+    return lat, lon, alt
+
+def compute_delta_v(lat, lon, alt):
+    print('[*] Computing Delta-V for orbital insertion...')
+    
+    # Simulación de cálculos matemáticos sin usar la librería math
+    gravity_constant = 398600
+    radius = 6371 + alt
+    
+    # Una aproximación simple de la velocidad orbital
+    velocity = (gravity_constant / radius) ** 0.5
+    
+    print(f'[+] Calculated Orbital Velocity: {velocity:.4f} km/s')
+    return velocity
+
+if __name__ == "__main__":
+    print('=' * 50)
+    print('       MARS MISSION - TELEMETRY & TRAJECTORY')
+    print('=' * 50)
+    
+    x_coord, y_coord, altitude = calculate_orbital_vectors()
+    
+    print(f'[+] Current Position: Lat {x_coord:.4f}, Lon {y_coord:.4f}')
+    print(f'[+] Current Altitude: {altitude:.2f} km')
+    
+    v = compute_delta_v(x_coord, y_coord, altitude)
+    
+    print('[*] Telemetry packet generated successfully.')
+    print('=' * 50)
 ```
 
 Since `PYTHONPATH` is set to `/home/mart` and you can write there, create a malicious `random.py`:
