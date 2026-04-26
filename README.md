@@ -2,7 +2,7 @@
 
 > **Difficulty:** Easy/Medium  
 > **OS:** Linux (Ubuntu 22.04)  
-> **Author:** [your-thm-username]  
+> **Author:** G00dB1t3  
 > **Platform:** [TryHackMe](https://tryhackme.com)
 
 ---
